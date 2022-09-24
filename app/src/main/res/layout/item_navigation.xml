@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="navIconUrl"
+            type="String" />
+
+        <variable
+            name="navTitle"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            imageUrl="@{navIconUrl}"
+            placeholder="@{@drawable/ic_baseline_placeholder_24}"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            tools:src="@drawable/ic_baseline_placeholder_24" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/navTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@{navTitle}"
+            android:textColor="@color/black"
+            tools:text="Bookmark" />
+
+    </LinearLayout>
+</layout>

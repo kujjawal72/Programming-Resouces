@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profileImageUrl"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgUserImage"
+            imageUrl="@{profileImageUrl}"
+            placeholder="@{@drawable/man}"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="?selectableItemBackground"
+            android:padding="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/searchView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/searchView"
+            tools:src="@drawable/man" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/card_background_style"
+            app:defaultQueryHint="@string/android_development"
+            app:layout_constraintEnd_toStartOf="@+id/imgBtnSortList"
+            app:layout_constraintStart_toEndOf="@id/imgUserImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBtnSortList"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="?selectableItemBackground"
+            android:padding="5dp"
+            android:src="@drawable/ic_baseline_sort_48"
+            android:tint="@color/purple_200"
+            app:layout_constraintBottom_toBottomOf="@+id/searchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/searchView" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierSearchBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="searchView,imgBtnSortList,imgUserImage" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFilterTypesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrierSearchBar"
+            tools:listitem="@layout/item_filter_type" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
