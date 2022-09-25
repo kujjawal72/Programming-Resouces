@@ -15,13 +15,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgUser"
             imageUrl="@{user.profileImageUrl}"
             placeholder="@{@drawable/man}"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="8dp"
+            app:shapeAppearanceOverlay="@style/circleImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/man" />
@@ -51,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgUser"
             app:layout_constraintTop_toBottomOf="@+id/txtUsername"
-            tools:text="A man who loves to code, learn latest thing, daily medium reader having " />
+            tools:text="A developer who loves to code, learn latest thing, daily medium reader. " />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrierImgAndBio"
